@@ -1,5 +1,6 @@
 class Solution:
     def numEquivDominoPairs(self, dominoes: List[List[int]]) -> int:
+        #byusing combination formula nCr
         
         dic = {}
         
