@@ -14,24 +14,14 @@ class Solution:
         if q is None and p is not None:
             return False
         def compare(pnode,qnode):
+            if not pnode and not qnode:
+                return True
+            if not pnode or not qnode:
+                return False
             if pnode.val != qnode.val:
                 return False
-            if pnode.left is None and pnode.right is None:
-                if qnode.left is not None and qnode.right is not None:
-                    return False
-            if pnode.left is not None:
-                if qnode.left is None:
-                    return False
-                if compare(pnode.left, qnode.left) == False:
-                    return False
-            if pnode.right is not None:
-                if qnode.right is None:
-                    return False
-                if compare(pnode.right, qnode.right) == False:
-                    return False
-            return True
-        if compare(p,q) is False or compare(q,p) is False:
-            return False
-        return True
+            return compare(pnode.left, qnode.left) and compare(pnode.right, qnode.right)
+        
+        return compare(p, q)
    
 
